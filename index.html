@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who secretly likes you?</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: url('https://ibb.co/TMsLV5kj') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #e91e63;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    .question p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    .question button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .loader, .result {
+      display: none;
+      margin-top: 20px;
+    }
+    #cta {
+      display: none;
+      margin-top: 30px;
+    }
+    #cta a {
+      background: #2196f3;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Who secretly likes you?</h1>
+    <p>Answer a few quick questions to find out!</p>
+
+    <div class="question" id="q1">
+      <p>How often do you flirt with someone?</p>
+      <button onclick="nextQuestion(1)">Very often</button>
+      <button onclick="nextQuestion(1)">Occasionally</button>
+      <button onclick="nextQuestion(1)">Rarely</button>
+    </div>
+
+    <div class="question" id="q2" style="display:none;">
+      <p>What part of your personality is most attractive?</p>
+      <button onclick="nextQuestion(2)">Sense of humor</button>
+      <button onclick="nextQuestion(2)">Confidence</button>
+      <button onclick="nextQuestion(2)">Mystery</button>
+    </div>
+
+    <div class="question" id="q3" style="display:none;">
+      <p>What's your zodiac sign?</p>
+      <button onclick="showLoader()">Aries</button>
+      <button onclick="showLoader()">Taurus</button>
+      <button onclick="showLoader()">Gemini</button>
+    </div>
+
+    <div class="loader" id="loader">
+      <p>Analyzing your profile... 🧠🔍</p>
+      <p>Looking for matches near you... 📍💘</p>
+    </div>
+
+    <div class="result" id="result">
+      <h2>3 women near you want to meet you!</h2>
+      <p>Reply now to start a conversation!</p>
+    </div>
+
+    <div id="cta">
+      <a href="https://your-smartlink-url.com" target="_blank">See Who They Are</a>
+    </div>
+  </div>
+
+  <script>
+    function nextQuestion(num) {
+      document.getElementById('q' + num).style.display = 'none';
+      document.getElementById('q' + (num + 1)).style.display = 'block';
+    }
+
+    function showLoader() {
+      document.getElementById('q3').style.display = 'none';
+      document.getElementById('loader').style.display = 'block';
+      setTimeout(showResult, 4000);
+    }
+
+    function showResult() {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('cta').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
